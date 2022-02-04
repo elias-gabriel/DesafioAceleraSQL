@@ -1,13 +1,13 @@
-As entregas da SEMANA 01 são:
+As entregas da SEMANA 02 são:
 
-· Entender o negócio
+· Possíveis correções do modelo conceitual/lógico
 
-· Trazer possíveis relatórios
+· Ajuste do Modelo Físico
 
-· Criar um trello
+· DDL - Estrutura do banco de dados com restrições e tipagem de dados
 
-· Criar o modelo conceitual
+· DML - Inserts das tabelas
 
-· Criar o modelo lógico (Aplicar regras de normalização)
+· Consultas Simples com: Where, Order By, Case, IN, Between, NOT, AND, OR, >, <>, >=, <=, =, like, Top, Distinct
 
-· Criar modelo físico (SQL)
+· Consultas com Joins (Inner ou Left) // Opcional: Right, Full, Self , Cross
