@@ -1,20 +1,87 @@
--- Consultar Editoras, Autores e Livros que não possuem informações completas
-select DISTINCT e.Nome_Editora, a.Nome_Autor, l.Nome_Livro, le.ISBN_10 from livro_autor la FULL JOIN livro_editora le on la.ID_Livro = le.ID_Livro full join autor a on la.ID_Autor =
-a.ID_Autor FULL join livro l on la.ID_Livro = l.ID_Livro FULL join editora e on le.ID_Editora = e.ID_Editora where le.ISBN_10 is NULL
+-------------------- AGREGAÇÃO --------------------
 
--- Livros com Baixo Estoque para Reposição
-select top 7 Nome_Livro, Estoque, Valor from livro l inner join livro_editora le on l.ID_Livro = le.ID_Livro where Estoque < 5 ORDER BY Estoque
+-- Total de Livros por Editora
+SELECT e.Nome_Editora
+	,count(e.Nome_Editora) AS QTD_Livros
+FROM editora e
+FULL JOIN livro_editora le
+	ON e.ID_Editora = le.ID_Editora
+FULL JOIN livro l
+	ON le.ID_Livro = l.ID_Livro
+WHERE e.Nome_Editora IS NOT NULL
+GROUP BY e.Nome_Editora
 
--- Livros que tenham a palavra toolkit
-SELECT Nome_Livro from livro where Nome_Livro LIKE '%toolkit%'
+-- Total de Livros por Autor
+SELECT a.Nome_Autor
+	,count(a.Nome_Autor) AS QTD_Livros
+FROM autor a
+FULL JOIN livro_autor la
+	ON a.ID_Autor = la.ID_Autor
+FULL JOIN livro l
+	ON la.ID_Livro = l.ID_Livro
+WHERE a.Nome_Autor IS NOT NULL
+GROUP BY a.Nome_Autor
 
--- Consultar Nome do Livro, Autor e Editora onde possuem *todos os dados cadastrados
-Select Nome_Livro, Nome_Autor, Nome_Editora from livro_autor la inner join livro_editora le on la.ID_Livro = le.ID_Livro inner join livro l on le.ID_Livro = l.ID_Livro inner join autor a on la.ID_Autor = a.ID_Autor
-                                                                                                             inner JOIN editora e on le.ID_Editora = e.ID_Editora
+-- Estoque Total de Livros
+SELECT sum(Estoque) AS Estoque
+FROM livro_editora
 
--- Consultar Livros que Possuem entre 300 e 800 páginas
-select l.Nome_Livro, l.Idioma, le.N_Paginas from livro_editora le inner join livro l on le.ID_Livro = l.ID_Livro where N_Paginas BETWEEN 300 and 800 order by N_Paginas ASC
+-- Média de Valor dos Livros
+SELECT avg(Valor) AS Valor_Médio
+FROM livro_editora
 
--- Consultar Livros que Possuem entre 300 e 800 páginas e são da editora Penguin Books
-select e.Nome_Editora, l.Nome_Livro, l.Idioma, le.N_Paginas from livro_editora le inner join livro l on le.ID_Livro = l.ID_Livro inner join editora e on le.ID_Editora = e.ID_Editora 
-                                                           where N_Paginas BETWEEN 300 and 800 AND e.Nome_Editora = 'Penguin Books' OR l.Idioma like '%Inglês%' order by le.N_Paginas
+-- Quantidade de livros em estoque, agrupado por Editora
+SELECT e.Nome_Editora
+	,SUM(le.Estoque) AS Estoque
+FROM livro_editora le
+INNER JOIN editora e
+	ON le.ID_Editora = e.ID_Editora
+GROUP BY e.Nome_Editora
+
+-------------------- SQL FUNCTIONS -------------------- 
+
+-- Idade dos Autores
+DECLARE @dt DATE = CONVERT(DATE, getdate())
+
+SELECT Nome_Autor
+	,DATEDIFF(year, Data_Nascimento, @dt) AS Idade
+FROM autor
+WHERE Data_Nascimento IS NOT NULL
+
+-- Converter Data de Nascimento dos Autor para o Padrão BR (dd/mm/yyy)
+SELECT Nome_Autor
+	,CONVERT(VARCHAR, Data_Nascimento, 103) AS Data_NascimentoBR
+FROM autor
+WHERE Data_Nascimento IS NOT NULL
+
+-- Formatar Valor do Livro para o Padrão BR
+SELECT format(le.valor, 'C', 'pt-BR') AS Formato_BR
+FROM livro_editora le
+INNER JOIN livro l
+	ON le.ID_Livro = l.ID_Livro
+
+-- Tamanho da Biografia de cada Autor
+SELECT Nome_Autor
+	,len(Biografia) AS TM_BIO
+FROM autor
+WHERE Biografia IS NOT NULL
+
+----------------------------------------- 
+
+-- Listar livros com pouco estoque (livros com menos de 10 cópias em estoque)
+SELECT l.Nome_Livro
+	,le.Estoque
+FROM livro_editora le
+INNER JOIN livro l
+	ON le.ID_Livro = l.ID_Livro
+WHERE le.Estoque <= 10
+ORDER BY le.Estoque
+
+-- União de Autores e Livros em uma única coluna
+SELECT Nome_Autor
+FROM autor
+
+UNION
+
+SELECT Nome_Livro
+FROM livro
