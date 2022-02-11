@@ -1,6 +1,7 @@
 As entregas da SEMANA 03 são:
 
 DOCUMENTAÇÃO:
+    
     · 7.1 (Estrutura do Relacionamentos)
 
     · 7.2 (SQL DDL) // 7.2.1 (Criação de Tabelas) // 7.2.2 (Detalhamento das restrições de domínio)
@@ -10,6 +11,7 @@ DOCUMENTAÇÃO:
     · 7.4 (Queries) // 7.4.1 (Queries Simples) // 7.4.2 (Queries com Filtro) // 7.4.3 (Queries com JOINS) // 7.4.4 (Queries com Agregação)
 
 QUERIES:
+    
     · JOINS - 5 Consultas
 
     · UNION - 1 Consulta
