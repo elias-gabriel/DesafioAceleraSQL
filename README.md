@@ -1,6 +1,7 @@
 As entregas da SEMANA 04 são:
 
 DOCUMENTAÇÃO:
+    
     · Procedures
 
     · User Functions
@@ -11,6 +12,7 @@ DOCUMENTAÇÃO:
         · Itens Relevantes      
 
 QUERIES:
+    
     · Procedures: 4
 
     · User Functions: 4
