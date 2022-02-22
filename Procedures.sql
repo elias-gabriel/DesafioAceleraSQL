@@ -1,4 +1,4 @@
-drop PROCEDURE if exists pr_AjusteValor, pr_AjutaEst, pr_Livro, pr_Editora, pr_LivroAutor, pr_Autor
+drop PROCEDURE if exists pr_AjusteValor, pr_AjutaEst, pr_Livro, pr_Editora, pr_LivroAutor, pr_Autor, pr_LivroAutor2
 GO
 
 
@@ -232,4 +232,74 @@ GO
             )
     END
     GO
+--
+
+-- Procedure: Inserir o ID do Livro e Autor cadastrados em sequência na tabela livro_autor  v2.0
+    GO
+
+    CREATE PROCEDURE pr_LivroAutor2 (
+        @nomel VARCHAR(100)
+        ,@idiomal VARCHAR(30)
+        ,@data_lancl SMALLINT
+        ,@nomeA VARCHAR(50)
+        ,@nacio VARCHAR(30)
+        ,@data_nas DATE
+        ,@bio VARCHAR(600)
+        )
+    AS
+    BEGIN
+        INSERT INTO livro (
+            Nome_Livro
+            ,Idioma
+            ,Ano_Lançamento
+            )
+        VALUES (
+            @nomel
+            ,@idiomal
+            ,@data_lancl
+            )
+
+        SELECT IDENT_CURRENT('livro') AS IDLivroCadastrado
+
+        INSERT INTO autor (
+            Nome_Autor
+            ,Nacionalidade
+            ,Data_Nascimento
+            ,Biografia
+            )
+        VALUES (
+            @nomea
+            ,@nacio
+            ,@data_nas
+            ,@bio
+            )
+
+        SELECT IDENT_CURRENT('autor') AS IDAutorCadastrado
+
+        DECLARE @pr_idL INT
+
+        SET @pr_idL = IDENT_CURRENT('livro')
+
+        DECLARE @pr_idA INT
+
+        SET @pr_idA = IDENT_CURRENT('autor')
+
+        INSERT INTO livro_autor (
+            ID_Livro
+            ,ID_Autor
+            )
+        VALUES (
+            @pr_idL
+            ,@pr_idA
+            )
+    END
+    GO
+
+    EXEC pr_LivroAutor2 @nomel = 'Fisica'
+        ,@idiomal = 'Inglês - US'
+        ,@data_lancl = 2011
+        ,@nomeA = 'Felipe'
+        ,@nacio = 'Brasileiro'
+        ,@data_nas = '1999/05/19'
+        ,@bio = NULL
 --
