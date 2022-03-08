@@ -6,7 +6,7 @@ create table editora (
     ID_Editora INT IDENTITY PRIMARY KEY NOT NULL,
     Nome_Editora varchar(50) NOT NULL, 
     Pais varchar(30) NOT NULL,
-    Endereço varchar(120) NULL,
+    Endereco varchar(120) NULL,
     Telefone varchar(16) NULL
 )
 INSERT INTO editora VALUES ('CreateSpace Independent Publishing Platform', 'Norte Americana', 'Scotts Valley, California , US', '(206)266-4064'),
@@ -18,13 +18,13 @@ create table livro (
 	ID_Livro int IDENTITY PRIMARY KEY Not Null,
 	Nome_Livro varchar(100) NOT NULL,
     Idioma varchar(30) NOT NULL,
-    Ano_Lançamento  SMALLINT NOT NULL
+    Ano_Lancamento  SMALLINT NOT NULL
 	);
 
-INSERT INTO livro VALUES ('Dom Casmurro', 'Português - BR', '1899'),
-                         ('Uma Breve História do Tempo', 'Português - BR', '2015'),
-                         ('O Universo Numa Casca de Noz', 'Português - BR', '2016'),
-                         ('A Teoria da Relatividade Gera', 'Português - BR', '2015')
+INSERT INTO livro VALUES ('Dom Casmurro', 'Portugues - BR', '1899'),
+                         ('Uma Breve História do Tempo', 'Portugues - BR', '2015'),
+                         ('O Universo Numa Casca de Noz', 'Portugues - BR', '2016'),
+                         ('A Teoria da Relatividade Gera', 'Portugues - BR', '2015')
 -- Tabela Autores
 create table autor (
 	ID_Autor int IDENTITY PRIMARY KEY NOT NULL,

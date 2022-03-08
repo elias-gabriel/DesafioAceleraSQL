@@ -27,7 +27,7 @@ SELECT sum(Estoque) AS Estoque
 FROM livro_editora
 
 -- Média de Valor dos Livros
-SELECT avg(Valor) AS Valor_Médio
+SELECT avg(Valor) AS Valor_Medio
 FROM livro_editora
 
 -- Quantidade de livros em estoque, agrupado por Editora

@@ -101,7 +101,7 @@ GO
     GO
 
     EXEC pr_Livro @nomel = 'Código Limpo'
-        ,@idiomal = 'Português - BR'
+        ,@idiomal = 'Portugues - BR'
         ,@data_lancl = 2009
 
     DECLARE @pr_idL int
@@ -170,7 +170,7 @@ GO
         INSERT INTO editora (
             Nome_Editora
             ,Pais
-            ,Endereço
+            ,Endereco
             ,Telefone
             )
         VALUES (
@@ -201,7 +201,7 @@ GO
     AS
     BEGIN
         EXEC pr_Livro @nomel = 'Código Limpo'
-            ,@idiomal = 'Português - BR'
+            ,@idiomal = 'Portugues - BR'
             ,@data_lancl = 2009
 
         DECLARE @pr_idL INT
@@ -251,7 +251,7 @@ GO
         INSERT INTO livro (
             Nome_Livro
             ,Idioma
-            ,Ano_Lançamento
+            ,Ano_Lancamento
             )
         VALUES (
             @nomel
@@ -296,7 +296,7 @@ GO
     GO
 
     EXEC pr_LivroAutor2 @nomel = 'Fisica'
-        ,@idiomal = 'Inglês - US'
+        ,@idiomal = 'Ingles - US'
         ,@data_lancl = 2011
         ,@nomeA = 'Felipe'
         ,@nacio = 'Brasileiro'

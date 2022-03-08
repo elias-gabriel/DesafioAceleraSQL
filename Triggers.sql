@@ -7,16 +7,16 @@ DROP TABLE IF EXISTS hist_editora
 		,Pais VARCHAR(30) NOT NULL
 		,Endereço VARCHAR(120) NULL
 		,Telefone VARCHAR(16) NULL
-		,Ação VARCHAR(12)
+		,Acao VARCHAR(12)
 		,Data_Modi DATETIME
 		)
 GO
 
 -- Trigger com finalidade de registrar o que ocorre na tabela 'editora', seja uma inserção, atualização ou deleção. Esse histórico fica registrado na tabela 'hist_editora'.
-DROP TRIGGER IF EXISTS Alteração_Editora
+DROP TRIGGER IF EXISTS Alteracao_Editora
 GO
 
-CREATE TRIGGER Alteração_Editora ON editora
+CREATE TRIGGER Alteracao_Editora ON editora
 AFTER INSERT
 	,UPDATE
 	,DELETE
@@ -28,7 +28,7 @@ BEGIN
 		,Pais
 		,Endereço
 		,Telefone
-		,Ação
+		,Acao
 		,Data_Modi
 		)
 	SELECT ID_Editora
@@ -46,7 +46,7 @@ BEGIN
 		,Pais
 		,Endereço
 		,Telefone
-		,Ação
+		,Acao
 		,Data_Modi
 		)
 	SELECT ID_Editora
@@ -64,7 +64,7 @@ BEGIN
 		,Pais
 		,Endereço
 		,Telefone
-		,Ação
+		,Acao
 		,Data_Modi
 		)
 	SELECT ID_Editora

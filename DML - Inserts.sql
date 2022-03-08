@@ -18,23 +18,23 @@ INSERT INTO editora VALUES('Penguin Books', 'Britânica', 'Londres, Reino Unido'
                           ('Ernst & Sohn', 'Alemâ', 'Berlin, Alemanha', null)
 
 -- Inserts Tabela Livro
-INSERT INTO livro VALUES ('Orgulho e Preconceito', 'Português - BR', '2011'),
-                         ('The Origin of Species: 150th Anniversary Edition', 'Inglês - US', '2003'),
-                         ('Hamlet', 'Português - BR', '2015'),
-                         ('Fortaleza Digital', 'Português - BR', '2005'),
-                         ('Ponto de Impacto', 'Português - BR', '2012'),
-                         ('A Rainha Vermelha', 'Português - BR', '2015'),
-                         ('O Universo Elegante', 'Português - BR', '2001'),
-                         ('História do Universo', 'Português - BR', '2011'),
-                         ('Do átomo ao buraco negro: Para Descomplicar a Astronomia', 'Português - BR', '2018'),
-                         ('Onde Estaremos em 2200?: Uma Viagem Pela Exploração Espacial', 'Português - BR', '2020'),
-                         ('Como Evitar um Desastre Climático: As Soluções que Temos e as Inovações Necessárias', 'Português - BR', '2021'),
-                         ('The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling', 'Inglês - US', '2013'),
-                         ('O Livro da Matemática', 'Português - BR', '2020'),
-                         ('Respostas de um Astrofísico', 'Português - BR', '2020'),
-                         ('It: A coisa', 'Português - BR', '2014'),
-                         ('Coleção Harry Potter - 7 volumes', 'Português - BR', '2015'),
-                         ('Romeu e Julieta: (Ilustrado)', 'Português - BR', '2021')
+INSERT INTO livro VALUES ('Orgulho e Preconceito', 'Portugues - BR', '2011'),
+                         ('The Origin of Species: 150th Anniversary Edition', 'Ingles - US', '2003'),
+                         ('Hamlet', 'Portugues - BR', '2015'),
+                         ('Fortaleza Digital', 'Portugues - BR', '2005'),
+                         ('Ponto de Impacto', 'Portugues - BR', '2012'),
+                         ('A Rainha Vermelha', 'Portugues - BR', '2015'),
+                         ('O Universo Elegante', 'Portugues - BR', '2001'),
+                         ('História do Universo', 'Portugues - BR', '2011'),
+                         ('Do átomo ao buraco negro: Para Descomplicar a Astronomia', 'Portugues - BR', '2018'),
+                         ('Onde Estaremos em 2200?: Uma Viagem Pela Exploração Espacial', 'Portugues - BR', '2020'),
+                         ('Como Evitar um Desastre Climático: As Soluções que Temos e as Inovações Necessárias', 'Portugues - BR', '2021'),
+                         ('The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling', 'Ingles - US', '2013'),
+                         ('O Livro da Matemática', 'Portugues - BR', '2020'),
+                         ('Respostas de um Astrofísico', 'Portugues - BR', '2020'),
+                         ('It: A coisa', 'Portugues - BR', '2014'),
+                         ('Coleção Harry Potter - 7 volumes', 'Portugues - BR', '2015'),
+                         ('Romeu e Julieta: (Ilustrado)', 'Portugues - BR', '2021')
 
 -- Inserts Tabela Autor
 INSERT INTO autor VALUES ('Jane Austen', 'Britânica', '1775/12/16', 'Foi uma escritora inglesa. A ironia que utilizou para descrever as personagens dos seus romances 
